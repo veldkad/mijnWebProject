@@ -9,13 +9,27 @@ lokaal = actueel["stationmeasurements"]
 exacteLocatie = lokaal[12]              #voor nu ff zo. Groningen is dit.
 
 
-print(actueel["sunrise"])
-print(actueel["sunset"])
+zonOp = actueel["sunrise"]
+zonOnder = actueel["sunset"]
 
-print(exacteLocatie["stationname"])
-print(exacteLocatie["timestamp"])
-print(exacteLocatie["weatherdescription"])
-print(exacteLocatie["airpressure"])
-print(exacteLocatie["temperature"])
-print(exacteLocatie["groundtemperature"])
-print(exacteLocatie["windspeed"])
+zonKracht = exacteLocatie["sunpower"]
+stationId = exacteLocatie["stationid"]
+stationNaam = exacteLocatie["stationname"]
+regio = exacteLocatie["regio"]
+meetMoment = exacteLocatie["timestamp"]
+weersOmschrijving = exacteLocatie["weatherdescription"]
+luchtdruk = exacteLocatie["airpressure"]
+temp = exacteLocatie["temperature"]
+tempGrond = exacteLocatie["groundtemperature"]
+tempGevoel = exacteLocatie["feeltemperature"]
+windsnelheid = exacteLocatie["windspeed"]
+windrichting = exacteLocatie["winddirection"]
+windrichtinggraad = exacteLocatie["winddirectiondegrees"]
+vocht = exacteLocatie["humidity"]
+neerslag = exacteLocatie["precipitation"]
+regenUur = exacteLocatie["rainFallLastHour"]
+regen24 = exacteLocatie["rainFallLast24Hour"]
+zicht = exacteLocatie["visibility"]
+
+
+print(exacteLocatie)
