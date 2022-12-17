@@ -33,5 +33,6 @@ zicht = exacteLocatie["visibility"]
 
 out = f"Meetmoment: {meetMoment}:\nStation: {stationNaam},  regio: {regio}  \nZon op: {zonOp}, zon onder: {zonOnder}, zonkracht: {zonKracht}\n" 
 out = out + f"{weersOmschrijving} \nLuchtdruk: {luchtdruk}, windsnelheid {windsnelheid}, windrichting: {windrichting}, graad: {windrichtinggraad}\n"
-out =  out + f"Vochtpercentage: {vocht}, neerslag: {neerslag}, regen laatste uur: {regenUur}, regen laatste 24 uur: {regen24}, zicht: {zicht}"
+out =  out + f"Vochtpercentage: {vocht}, neerslag: {neerslag}, regen laatste uur: {regenUur}, regen laatste 24 uur: {regen24}, zicht: {zicht}\n"
+out =  out + f"Temperatuur: {temp}, grondtemperatuur: {tempGrond}, gevoelstemperatuur {tempGevoel}" 
 print(out)
