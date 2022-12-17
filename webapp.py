@@ -6,7 +6,7 @@ url = "https://data.buienradar.nl/2.0/feed/json"
 response = requests.request("GET",url)
 actueel = response.json()["actual"]
 lokaal = actueel["stationmeasurements"]
-exacteLocatie = lokaal[12]              #voor nu ff zo. Groningen is dit.
+exacteLocatie = lokaal[12]                          #voor nu ff zo. Groningen is dit.
 
 
 zonOp = actueel["sunrise"]
@@ -31,5 +31,7 @@ regenUur = exacteLocatie["rainFallLastHour"]
 regen24 = exacteLocatie["rainFallLast24Hour"]
 zicht = exacteLocatie["visibility"]
 
-
-print(exacteLocatie)
+out = f"Meetmoment: {meetMoment}:\nStation: {stationNaam},  regio: {regio}  \nZon op: {zonOp}, zon onder: {zonOnder}, zonkracht: {zonKracht}\n" 
+out = out + f"{weersOmschrijving} \nLuchtdruk: {luchtdruk}, windsnelheid {windsnelheid}, windrichting: {windrichting}, graad: {windrichtinggraad}\n"
+out =  out + f"Vochtpercentage: {vocht}, neerslag: {neerslag}, regen laatste uur: {regenUur}, regen laatste 24 uur: {regen24}, zicht: {zicht}"
+print(out)
