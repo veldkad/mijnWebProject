@@ -9,3 +9,6 @@ Nog even uitzoeken hoe we de venv automatisch meestarten.
 #17-12-2022
 - Output aangepast
 - Krijg nu van alle weerstations alle output, moet nog wel filteren wanneer None.
+
+#18-12-2022
+- Schrijf de data weg in een sqliteDb
