@@ -12,3 +12,6 @@ Nog even uitzoeken hoe we de venv automatisch meestarten.
 
 #18-12-2022
 - Schrijf de data weg in een sqliteDb
+
+#19-12-2022
+- Eerste aanzet mbt GUI
