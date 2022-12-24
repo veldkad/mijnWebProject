@@ -44,8 +44,12 @@ def fetchdata():
 
         conn = sqlite3.connect("dataweerstations.db")
         cursor = conn.cursor()
-        cursor.execute('''INSERT INTO datastations ('stationId' , 'zonKracht' , 'meetMoment' , 'luchtdruk' , 'weersOmschrijving' , 'temp' , 'tempGrond' , 'tempGevoel' , 'windsnelheid' , 'windrichting' , 'windrichtinggraad' , 'vocht' , 'neerslag' , 'regenUur' , 'regen24' , 'zicht') VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''', (stationId, zonKracht,meetMoment,luchtdruk,weersOmschrijving,temp,tempGrond,tempGevoel,windsnelheid,windrichting,windrichtinggraad,vocht,neerslag,regenUur,regen24,zicht))
+        cursor.execute('''INSERT INTO stationdata ('stationId' , 'zonKracht' , 'meetMoment' , 'luchtdruk' , 'weersOmschrijving' , 'temp' , 'tempGrond' , 'tempGevoel' , 'windsnelheid' , 'windrichting' , 'windrichtinggraad' , 'vocht' , 'neerslag' , 'regenUur' , 'regen24' , 'zicht') VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''', (stationId, zonKracht,meetMoment,luchtdruk,weersOmschrijving,temp,tempGrond,tempGevoel,windsnelheid,windrichting,windrichtinggraad,vocht,neerslag,regenUur,regen24,zicht))
+
+#eenmalig vullen van de stationstabel
+#        cursor.execute('''INSERT INTO stations ('stationId', 'stationname','regio') VALUES (?,?,?)''', (stationId, stationNaam, regio))
         conn.commit()
+        conn.close()
 
         i += 1
 

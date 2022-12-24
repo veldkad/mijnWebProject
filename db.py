@@ -7,12 +7,42 @@ conn = sqlite3.connect("dataweerstations.db")
 #print(conn.total_changes)
 
 cursor = conn.cursor()
-#cursor.execute("CREATE TABLE datastations (stationId INTEGER, stationname TEXT, regio TEXT, zonKracht REAL, meetMoment TEXT, luchtdruk REAL, weersOmschrijving TEXT, temp REAL, tempGrond REAL, tempGevoel REAL, windsnelheid REAL, windrichting TEXT, windrichtinggraad INTEGER, vocht REAL, neerslag REAL, regenUur REAL, regen24 REAL, zicht REAL  )")
+try: 
+	cursor.execute('''CREATE TABLE "stations" (
+		"id"	INTEGER,
+		"stationID"	INTEGER UNIQUE,
+		"stationname"	TEXT,
+		"regio"	TEXT,
+		PRIMARY KEY("id" AUTOINCREMENT)
+	);''')
 
-#cursor.execute("INSERT INTO datastations VALUES (316333, 'Station Groenkampen', 'PEELOO', 500, '2022-12-18T20:00', 1022.2, 'Lichtbewolkt', -4.5 , -4.8 , -9.4 , 55.3 , 'ZO' , 288.7 , 89.9 , 3.2 , 0.0 , 3.2 , 5200 )")
-#cursor.execute("INSERT INTO stationdata VALUES (316333, 'Station Groenkampen', 'PEELOO', 500, '2022-12-18T20:00', 1022.2, 'Lichtbewolkt', -4.5 , -4.8 , -9.4 , 55.3 , 'ZO' , 288.7 , 89.9 , 3.2 , 0.0 , 3.2 , 5200 )")
-#conn.commit()
+	cursor.execute(''' CREATE TABLE "stationdata" (
+		"id"	INTEGER,
+		"stationId"	INTEGER,
+		"zonKracht"	REAL,
+		"meetMoment"	TEXT,
+		"luchtdruk"	NUMERIC,
+		"weersOmschrijving"	BLOB,
+		"temp"	NUMERIC,
+		"tempGrond"	NUMERIC,
+		"tempGevoel"	NUMERIC,
+		"windsnelheid"	NUMERIC,
+		"windrichting"	BLOB,
+		"windrichtinggraad"	TEXT,
+		"vocht"	NUMERIC,
+		"neerslag"	NUMERIC,
+		"regenUur"	NUMERIC,
+		"regen24"	NUMERIC,
+		"zicht"	NUMERIC,
+		PRIMARY KEY("id" AUTOINCREMENT),
+		FOREIGN KEY("stationId") REFERENCES "stations"("stationID")
+	);''')
+except:
+	pass
 
-rows = cursor.execute("SELECT * FROM datastations").fetchall()
+
+rows = cursor.execute("SELECT * FROM stationdata").fetchall()
 print(rows)
+
+conn.close()
 
