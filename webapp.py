@@ -42,9 +42,9 @@ def fetchdata():
         print(out)
 
 
-        conn = sqlite3.connect("../databases/dataweerstations.db")
+        conn = sqlite3.connect("dataweerstations.db")
         cursor = conn.cursor()
-        cursor.execute("insert into datastations values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", (stationId, stationNaam, regio,zonKracht,meetMoment,luchtdruk,weersOmschrijving,temp,tempGrond,tempGevoel,windsnelheid,windrichting,windrichtinggraad,vocht,neerslag,regenUur,regen24,zicht))
+        cursor.execute('''INSERT INTO datastations ('stationId' , 'zonKracht' , 'meetMoment' , 'luchtdruk' , 'weersOmschrijving' , 'temp' , 'tempGrond' , 'tempGevoel' , 'windsnelheid' , 'windrichting' , 'windrichtinggraad' , 'vocht' , 'neerslag' , 'regenUur' , 'regen24' , 'zicht') VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''', (stationId, zonKracht,meetMoment,luchtdruk,weersOmschrijving,temp,tempGrond,tempGevoel,windsnelheid,windrichting,windrichtinggraad,vocht,neerslag,regenUur,regen24,zicht))
         conn.commit()
 
         i += 1
