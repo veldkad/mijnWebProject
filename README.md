@@ -15,3 +15,6 @@ Nog even uitzoeken hoe we de venv automatisch meestarten.
 
 #19-12-2022
 - Eerste aanzet mbt GUI
+
+#02-01-2023
+- Ik krijg nu wat uit de database in een label ;)s
